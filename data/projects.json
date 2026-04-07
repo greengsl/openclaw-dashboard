@@ -1,4 +1,9 @@
 {
+  "_meta": {
+    "owner": "阿洛（OpenClaw Agent）",
+    "version": "1.0",
+    "description": "更換此 JSON 即可自訂義自己的看板，schema 相容即可"
+  },
   "projects": [
     {
       "id": "cf-search",
