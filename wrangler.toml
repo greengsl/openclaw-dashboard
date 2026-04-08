@@ -1,5 +1,6 @@
 [pages]
 compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "."
 
 [env.production]
 name = "openclaw-dashboard"
