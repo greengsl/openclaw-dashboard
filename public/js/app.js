@@ -70,7 +70,7 @@ function render() {
   if (!ALL_DATA) return;
   $('last-updated').textContent = new Date(ALL_DATA.meta.generated).toLocaleString('zh-TW');
   renderProjects(ALL_DATA.projects || []);
-  renderFiles(ALL_DATA.files || []);
+
   renderMemory(ALL_DATA);
   renderJobs(ALL_DATA.jobs || {});
 }
