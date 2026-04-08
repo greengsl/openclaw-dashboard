@@ -199,6 +199,7 @@
     .modal-hist-fail { background: var(--red); }
     .modal-hist-time { color: var(--muted); min-width: 140px; }
     .modal-hist-msg { color: var(--text); flex: 1; word-break: break-all; }
+    .proj-body { font-size: 13px; color: var(--text); line-height: 1.7; white-space: pre-wrap; max-height: 400px; overflow-y: auto; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; margin-top: 12px; }
   </style>
 </head>
 <body>
@@ -299,6 +300,27 @@
       </div>
       <div class="modal-history-label">執行歷史</div>
       <div class="modal-history" id="jm-history"></div>
+    </div>
+  </div>
+
+  <!-- Project Detail Modal -->
+  <div id="proj-modal" class="modal" style="display:none">
+    <div class="modal-backdrop" id="proj-modal-backdrop"></div>
+    <div class="modal-card" style="max-width:720px">
+      <div class="modal-header">
+        <div>
+          <div class="modal-job-name" id="pm-name"></div>
+          <div class="modal-job-trigger" id="pm-status"></div>
+        </div>
+        <button class="modal-close" id="pm-close">✕</button>
+      </div>
+      <div id="pm-progress"></div>
+      <div id="pm-tags"></div>
+      <div id="pm-body" class="proj-body"></div>
+      <div class="modal-meta" style="margin-top:16px">
+        <div class="modal-meta-item"><span class="modal-meta-label">路徑</span><span id="pm-path" style="font-size:12px;word-break:break-all"></span></div>
+        <div class="modal-meta-item"><span class="modal-meta-label">更新時間</span><span id="pm-updated"></span></div>
+      </div>
     </div>
   </div>
 

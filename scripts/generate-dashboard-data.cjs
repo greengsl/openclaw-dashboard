@@ -108,6 +108,8 @@ function parseProjectNotes() {
     const statusMap = { '規劃中':'planning', '進行中':'active', '已完成':'completed', '擱置':'onhold' };
     const rawStatus = txt.match(/狀態[：:]\s*([^\s]+)/)?.[1] || 'active';
     const mappedStatus = statusMap[rawStatus] || 'active';
+    // 保留完整內容（移除 YAML frontmatter）
+    const body = txt.replace(/^---[\s\S]*?---\n/, '').trim();
     // 建立與 MEMORY.md 一致的 id
     const id = slugify(title);
     // 檢查是否已在 projects（來自 MEMORY.md），有的話更新，沒有的話新增
@@ -117,6 +119,7 @@ function parseProjectNotes() {
       existing.progress = pct ? parseInt(pct) : existing.progress;
       existing.status = mappedStatus;
       existing.tags = [...new Set([...existing.tags, ...tags])];
+      existing.body = body;
     } else {
       data.projects.push({
         id,
@@ -125,6 +128,7 @@ function parseProjectNotes() {
         progress: pct ? parseInt(pct) : 0,
         description: desc,
         tags,
+        body,
         completed: [],
         pending: [],
         relatedNote: `notes/projects/${file}`,

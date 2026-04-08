@@ -80,6 +80,25 @@ async function init() {
   render();
 }
 
+// ── Project Modal ──────────────────────────────────────────────────────────
+function openProjectModal(project) {
+  $('pm-name').textContent = project.title;
+  $('pm-status').textContent = project.status ? statusLabel(project.status) : '';
+  $('pm-progress').innerHTML = project.progress !== undefined ? progressBar(project.progress) : '';
+  $('pm-tags').innerHTML = tagsHTML(project.tags);
+  $('pm-body').textContent = project.body || project.description || '（無內容）';
+  $('pm-path').textContent = project.relatedNote || project.path || '';
+  $('pm-updated').textContent = project.lastUpdated || '';
+  $('proj-modal').style.display = 'flex';
+}
+
+function closeProjectModal() {
+  $('proj-modal').style.display = 'none';
+}
+
+document.getElementById('pm-close').addEventListener('click', closeProjectModal);
+document.getElementById('proj-modal-backdrop').addEventListener('click', closeProjectModal);
+
 // ── Projects ───────────────────────────────────────────────────────────────
 function renderProjects(items) {
   const stats = $('projects-stats');
@@ -87,19 +106,25 @@ function renderProjects(items) {
   const grid = $('projects-grid');
   if (!items.length) { grid.innerHTML = '<p class="empty">尚無專案</p>'; return; }
   grid.innerHTML = items.map(p => `
-    <div class="card">
+    <div class="card project-card" data-project-id="${esc(p.id)}">
       <div class="card-header">
         <div class="card-title">${esc(p.title)}</div>
-        <span class="status ${esc(p.status)}">${p.status==='completed'?'已完成':'進行中'}</span>
+        <span class="status ${esc(p.status)}">${statusLabel(p.status)}</span>
       </div>
       ${p.description ? `<div class="desc">${esc(p.description)}</div>` : ''}
       ${p.progress !== undefined ? progressBar(p.progress) : ''}
       ${tagsHTML(p.tags)}
-      ${p.completed && p.completed.length ? `<div class="list-label">已完成</div>${p.completed.map(c=>`<div class="list-item">${esc(c)}</div>`).join('')}` : ''}
-      ${p.pending && p.pending.length ? `<div class="list-label">待完成</div>${p.pending.map(c=>`<div class="list-item">${esc(c)}</div>`).join('')}` : ''}
-      <div class="card-meta">更新：${p.lastUpdated || ''}</div>
+      <div class="card-meta" style="color:var(--accent);cursor:pointer">點擊查看完整內容 →</div>
     </div>
   `).join('');
+
+  grid.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const id = card.dataset.projectId;
+      const project = items.find(p => p.id === id);
+      if (project) openProjectModal(project);
+    });
+  });
 }
 
 // ── Files ─────────────────────────────────────────────────────────────────
