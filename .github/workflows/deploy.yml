@@ -20,7 +20,7 @@ jobs:
         run: npm install -g wrangler
 
       - name: Create CF Pages project (if not exists)
-        run: wrangler pages project create openclaw-dashboard || true
+        run: wrangler pages project create openclaw-dashboard --production-branch main || true
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
