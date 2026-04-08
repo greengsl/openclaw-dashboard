@@ -20,7 +20,7 @@ jobs:
         run: npm install -g wrangler
 
       - name: Create CF Pages project (if not exists)
-        run: wrangler pages project create openclaw-dashboard --commit-message="init dashboard project" || true
+        run: wrangler pages project create openclaw-dashboard || true
 
       - name: Deploy to Cloudflare Pages
         run: wrangler pages deploy . --project-name=openclaw-dashboard --commit-message="$GITHUB_SHA" --commit-dirty=true
