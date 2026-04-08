@@ -212,7 +212,8 @@ function openMemoryModal(item) {
   $('mem-source').textContent = sourceLabel(item.source) || item.source || '';
   $('mem-source').className = `source-badge ${esc(item.source)}`;
   $('mem-tags').innerHTML = tagsHTML(item.tags, item.source);
-  $('mem-body').textContent = item.description || '（無內容）';
+  // 優先顯示完整 body，其次 description，再次（無內容）
+  $('mem-body').textContent = item.body || item.description || '（無內容）';
   $('mem-path').textContent = item.path || '';
   $('mem-date').textContent = item.date || '';
   if (item.stockId) {

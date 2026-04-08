@@ -184,6 +184,7 @@ function scanDir(dir, { source, maxDepth = 99, skipDirs = [] } = {}) {
         companyName: companyName || undefined,
         path:  path.relative(ROOT, full),
         date,
+        body: txt.replace(/^---[\s\S]*?---\n/, '').trim(), // 完整 MD 內容
       });
     }
   }
