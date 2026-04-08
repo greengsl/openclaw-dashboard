@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-04-08T10:26:06.880Z",
+    "generated": "2026-04-08T10:49:40.747Z",
     "workspace": "/Users/downtoearth/.openclaw/workspace"
   },
   "projects": [
@@ -268,48 +268,6 @@
       ]
     },
     {
-      "id": "github-skill-專案記憶",
-      "title": "GitHub Skill 專案記憶",
-      "status": "active",
-      "progress": 0,
-      "description": "- **安裝日期：** 2026-04-03",
-      "tags": [],
-      "body": "# GitHub Skill 專案記憶\n\n## 基本資訊\n- **安裝日期：** 2026-04-03\n- **Skill：** github（skillhub）\n- **gh 版本：** 2.89.0\n- **gh 安裝方式：** brew install gh\n\n## 雲端設定\n- **Cloudflare 登入信箱：** Downtoearth.tw@gmail.com\n- **Cloudflare 帳號 ID（正確）：** `4636a1d26dcf5cf8ff663c6104f12d86`（之前錯設成 `3c89a3f816871c9a2f3ef09dde0e977a`，已修正）\n- **CLOUDFARE_API_KEY：** Global API Key（`cfk_...`），已設定於 GitHub Secrets\n- **CLOUDFARE_EMAIL / CLOUDFARE_ACCOUNT_ID：** 已設定於 GitHub Repo Variables\n\n## 認證狀態\n- **帳號：** openclawGit200\n- **已登入：** ✅（macOS Keychain）\n- **Token scope：** admin:enterprise, admin:org, repo, workflow, codespace, copilot, delete:packages, delete_repo, gist, notifications, project, user, write:packages 等完整權限\n- **Token 儲存位置：** macOS Keychain（`gh auth login` 自動寫入 keyring，**不再需要也不應該另外儲存 token**）\n\n## 新備份系統\n- **Repo：** `openclawGit200/openclaw-backup`（public）\n- **用途：** 將 openclaw workspace 遷移到任意 Mac\n- **內容：** skills、notes、memory、scripts、核心設定檔（~26MB）\n- **排除：** .credentials/、台股季報 PDF、twse-reports-lib 等大型可重建資料\n- **安裝：** `bash <(curl -L https://raw.githubusercontent.com/openclawGit200/openclaw-backup/main/install.sh)`\n- **Repo：** `openclawGit200/openclaw-backup`\n- **內容：** skills、notes、memory、scripts、核心設定檔（~26MB）\n- **安裝指令：** `bash <(curl -L https://raw.githubusercontent.com/openclawGit200/openclaw-backup/main/install.sh)`\n\n## 已啟用功能\n- Issue 管理（`gh issue`）\n- PR 管理（`gh pr`）\n- CI/CD 工作流（`gh run`）\n- API 查詢（`gh api`）\n\n## 注意事項\n- Token 已用 `gh auth login --with-token` 寫入 keychain，之後執行 `gh` 命令無需再輸入 token\n- 不要把 token 寫進任何 md/json 檔案\n- 若需要跨机器使用，再取出 token 來設定；一般操作在本地端已足夠",
-      "completed": [],
-      "pending": [],
-      "relatedNote": "notes/projects/github.md",
-      "lastUpdated": "2026/4/6",
-      "files": [
-        {
-          "name": "📝 notes/projects/github.md",
-          "url": null,
-          "path": "notes/projects/github.md",
-          "type": "local"
-        }
-      ]
-    },
-    {
-      "id": "openclaw-agent-設定記憶",
-      "title": "OpenClaw Agent 設定記憶",
-      "status": "active",
-      "progress": 0,
-      "description": "- `f207d73a-059b-42ed-b202-6ee1b6c197a4` — **restart-gateway**（每3小時重啟，導致 LaunchAgent 孤兒化，已刪除）",
-      "tags": [],
-      "body": "# OpenClaw Agent 設定記憶\n\n## 已刪除的 Cron 作業\n- `f207d73a-059b-42ed-b202-6ee1b6c197a4` — **restart-gateway**（每3小時重啟，導致 LaunchAgent 孤兒化，已刪除）\n\n## 現有 Cron 作業\n| ID | 名稱 | 排程 | 狀態 |\n|----|------|------|------|\n| e4e79798 | 中山天氣早報 | 每天 07:30（平日）| ok |\n| 4a3d946f | 台股季報-啟動LaunchAgent | 每天 23:00 | error（已更換為 taiwan-stock-crawler） |\n\n## skills 目錄\n- `/Users/downtoearth/.openclaw/workspace/skills/`\n- 已安裝：台股季報、capability-evolver-pro（自我進化引擎）、find-skills、skill-vetter 等\n\n## 金鑰教訓\n1. **Gateway 重啟會中斷 LaunchAgent** — 不應有每3小時重啟的 cron\n2. **長時間任務用 launchd plist，不要用 cron session** — cron session 在 Gateway 重啟後會 abort\n3. **`.learnings/` 是被動觸發** — 接到任務時主動查，不是等著才翻\n\n## 記憶觸發規則（寫入 AGENTS.md）\n接收到任何工作/任務/命令時，第一步查詢：\n1. `.learnings/LEARNINGS.md`\n2. `.learnings/ERRORS.md`\n3. `notes/projects/XXX.md`（對應專案）",
-      "completed": [],
-      "pending": [],
-      "relatedNote": "notes/projects/openclaw-setup.md",
-      "lastUpdated": "2026/3/30",
-      "files": [
-        {
-          "name": "📝 notes/projects/openclaw-setup.md",
-          "url": null,
-          "path": "notes/projects/openclaw-setup.md",
-          "type": "local"
-        }
-      ]
-    },
-    {
       "id": "台股季報爬蟲專案記憶",
       "title": "台股季報爬蟲專案記憶",
       "status": "active",
@@ -326,27 +284,6 @@
           "name": "📝 notes/projects/twse-crawler.md",
           "url": null,
           "path": "notes/projects/twse-crawler.md",
-          "type": "local"
-        }
-      ]
-    },
-    {
-      "id": "遊戲試做-—-專案計畫",
-      "title": "遊戲試做 — 專案計畫",
-      "status": "active",
-      "progress": 0,
-      "description": "創作一款對話式戀愛遊戲（類似 90 年代 Eroge），",
-      "tags": [],
-      "body": "# 遊戲試做 — 專案計畫\n\n## 專案目標\n創作一款對話式戀愛遊戲（類似 90 年代 Eroge），\n包含多角色路線分支、小說式場景描寫、插圖（視生圖能力而定）。\n\n---\n\n## 風格參考\n\n- **同級生**（1992 年枚生）：校園戀愛、純愛、無 H 場景\n- **成人戀愛遊戲**：對話式推進、角色路線分支、H 場景（成年人間）\n\n---\n\n## 我能做的部分\n\n| 部分 | 能力 |\n|------|------|\n| 文字創作 | ✅ 小說式戀愛/情感線續寫 |\n| 多角色路線 | ✅ 玩家選項不同，角色反應不同 |\n| 對話式場景 | ✅ |\n| 立繪插圖 | ⚠️ 需要實驗生圖效果 |\n| 場景插圖 | ⚠️ 需要實驗生圖效果 |\n\n---\n\n## 待確認\n\n- [ ] 遊戲風格：校園戀愛 / 現代都會 / 其他\n- [ ] 角色設定（用户提供或我設計）\n- [ ] 世界觀/故事背景\n- [ ] H 場景：需要（成年人間）/ 不需要\n\n---\n\n## 建議第一步\n\n1. 先用**純文字**創作一個短篇場景（示範）\n2. 用户確認風格和方向\n3. 如效果滿意，擴展成多角色路線\n\n---\n\n## 灵感\n\n- 《贖罪》風格的階級差距愛情（管家之子 × 富家大小姐）\n- 90 年代日本校園戀愛的純愛感\n- 對話式 H game 的氣氛營造\n\n---\n\n## 建立日期：2026-04-06",
-      "completed": [],
-      "pending": [],
-      "relatedNote": "notes/projects/遊戲試做.md",
-      "lastUpdated": "2026/4/6",
-      "files": [
-        {
-          "name": "📝 notes/projects/遊戲試做.md",
-          "url": null,
-          "path": "notes/projects/遊戲試做.md",
           "type": "local"
         }
       ]

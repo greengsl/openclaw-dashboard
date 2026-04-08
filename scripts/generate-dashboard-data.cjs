@@ -62,7 +62,8 @@ function parseMEMORY() {
     if (!titleLine) continue;
     const title = titleLine.replace(/^#{3}\s+/,'').trim();
     if (!title) continue;
-    const skipTitles = ['About Human','Recent Research','Key Decisions','Lessons Learned','Relationships & People'];
+    const skipTitles = ['About Human','Recent Research','Key Decisions','Lessons Learned','Relationships & People',
+      'OpenClaw Agent 設定記憶', '遊戲試做 — 專案計畫', 'GitHub Skill 專案記憶'];
     if (skipTitles.includes(title)) continue;
 
     const bullets = lines.filter(l => l.startsWith('- **'));
@@ -93,6 +94,12 @@ function parseMEMORY() {
 }
 
 // ── 2. notes/projects/*.md → files ──────────────────────────────────────────
+const SKIP_PROJECT_IDS = new Set([
+  'openclaw-agent-設定記憶',
+  '遊戲試做-—-專案計畫',
+  'github-skill-專案記憶',
+]);
+
 function parseProjectNotes() {
   const dir = path.join(ROOT, 'notes', 'projects');
   if (!fs.existsSync(dir)) return;
@@ -112,6 +119,7 @@ function parseProjectNotes() {
     const body = txt.replace(/^---[\s\S]*?---\n/, '').trim();
     // 建立與 MEMORY.md 一致的 id
     const id = slugify(title);
+    if (SKIP_PROJECT_IDS.has(id)) continue; // 使用者要求移除的專案
     // 檢查是否已在 projects（來自 MEMORY.md），有的話更新，沒有的話新增
     const existing = data.projects.find(p => p.id === id);
     if (existing) {
