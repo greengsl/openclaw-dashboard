@@ -1,20 +1,9 @@
 {
   "meta": {
-    "generated": "2026-04-08T04:42:51.453Z",
+    "generated": "2026-04-08T05:09:03.286Z",
     "workspace": "/Users/downtoearth/.openclaw/workspace"
   },
   "projects": [
-    {
-      "id": "glm-skills",
-      "title": "GLM Skills",
-      "status": "active",
-      "progress": 0,
-      "description": "3個技能已安裝，summarize-config.json 已更新為 Z_AI_API_KEY（智譜 Zhipu）",
-      "tags": [],
-      "completed": [],
-      "pending": [],
-      "lastUpdated": "2026/4/8"
-    },
     {
       "id": "台股季報爬蟲",
       "title": "台股季報爬蟲",
@@ -26,6 +15,39 @@
       "pending": [
         "MEMORY.md 舊記錄 862/1205 口徑待確認（可能是某次中斷後重啟的子集？）"
       ],
+      "lastUpdated": "2026/4/8"
+    },
+    {
+      "id": "163-郵箱監控系統",
+      "title": "163 郵箱監控系統",
+      "status": "active",
+      "progress": 0,
+      "description": "- **郵箱：** 13543831490@163.com",
+      "tags": [],
+      "completed": [],
+      "pending": [],
+      "lastUpdated": "2026/4/8"
+    },
+    {
+      "id": "龍蝦燈-—-專案計畫",
+      "title": "龍蝦燈 — 專案計畫",
+      "status": "active",
+      "progress": 0,
+      "description": "讓 LED 面板根據 OpenClaw 的不同狀態呈現對應的光影效果，",
+      "tags": [],
+      "completed": [],
+      "pending": [],
+      "lastUpdated": "2026/4/8"
+    },
+    {
+      "id": "karing-+-cloudflare-連線優化計畫",
+      "title": "Karing + Cloudflare 連線優化計畫",
+      "status": "active",
+      "progress": 0,
+      "description": "優化 OpenClaw 對外（NVIDIA、MiniMax、Cloudflare）的連線品質與穩定性。",
+      "tags": [],
+      "completed": [],
+      "pending": [],
       "lastUpdated": "2026/4/8"
     },
     {
@@ -90,138 +112,79 @@
       "lastUpdated": "2026/4/8"
     },
     {
-      "id": "2026-04-05---atr-不適合用來掃-skills",
-      "title": "2026-04-05 - ATR 不適合用來掃 Skills",
-      "status": "active",
-      "progress": 0,
-      "description": "",
-      "tags": [],
-      "completed": [],
-      "pending": [],
-      "lastUpdated": "2026/4/8"
-    },
-    {
-      "id": "2026-04-05---glm-skills-安裝",
-      "title": "2026-04-05 - GLM Skills 安裝",
-      "status": "active",
-      "progress": 0,
-      "description": "",
-      "tags": [],
-      "completed": [],
-      "pending": [],
-      "lastUpdated": "2026/4/8"
-    }
-  ],
-  "files": [
-    {
-      "id": "projnote-163-email-monitor.md",
-      "title": "163 郵箱監控系統",
-      "description": "- **郵箱：** 13543831490@163.com",
-      "tags": [],
-      "path": "notes/projects/163-email-monitor.md",
-      "type": "project-note",
-      "progress": null,
-      "status": "active",
-      "source": "project",
-      "lastUpdated": "2026/4/3"
-    },
-    {
-      "id": "projnote-backup.md",
+      "id": "備份系統（github-異地備份）",
       "title": "備份系統（GitHub 異地備份）",
+      "status": "active",
+      "progress": 0,
       "description": "- **建立日期：** 2026-04-06",
       "tags": [],
-      "path": "notes/projects/backup.md",
-      "type": "project-note",
-      "progress": null,
-      "status": "active",
-      "source": "project",
+      "completed": [],
+      "pending": [],
+      "relatedNote": "notes/projects/backup.md",
       "lastUpdated": "2026/4/6"
     },
     {
-      "id": "projnote-cloudflare.md",
+      "id": "cloudflare-專案",
       "title": "Cloudflare 專案",
+      "status": "active",
+      "progress": 0,
       "description": "在中國境內透過 Cloudflare Worker 代理訪問被封鎖的國外搜尋引擎。",
       "tags": [],
-      "path": "notes/projects/cloudflare.md",
-      "type": "project-note",
-      "progress": null,
-      "status": "active",
-      "source": "project",
+      "completed": [],
+      "pending": [],
+      "relatedNote": "notes/projects/cloudflare.md",
       "lastUpdated": "2026/4/8"
     },
     {
-      "id": "projnote-github.md",
+      "id": "github-skill-專案記憶",
       "title": "GitHub Skill 專案記憶",
+      "status": "active",
+      "progress": 0,
       "description": "- **安裝日期：** 2026-04-03",
       "tags": [],
-      "path": "notes/projects/github.md",
-      "type": "project-note",
-      "progress": null,
-      "status": "active",
-      "source": "project",
+      "completed": [],
+      "pending": [],
+      "relatedNote": "notes/projects/github.md",
       "lastUpdated": "2026/4/6"
     },
     {
-      "id": "projnote-karing-cf-optimization.md",
-      "title": "Karing + Cloudflare 連線優化計畫",
-      "description": "優化 OpenClaw 對外（NVIDIA、MiniMax、Cloudflare）的連線品質與穩定性。",
-      "tags": [],
-      "path": "notes/projects/karing-cf-optimization.md",
-      "type": "project-note",
-      "progress": null,
-      "status": "active",
-      "source": "project",
-      "lastUpdated": "2026/4/5"
-    },
-    {
-      "id": "projnote-openclaw-setup.md",
+      "id": "openclaw-agent-設定記憶",
       "title": "OpenClaw Agent 設定記憶",
+      "status": "active",
+      "progress": 0,
       "description": "- `f207d73a-059b-42ed-b202-6ee1b6c197a4` — **restart-gateway**（每3小時重啟，導致 LaunchAgent 孤兒化，已刪除）",
       "tags": [],
-      "path": "notes/projects/openclaw-setup.md",
-      "type": "project-note",
-      "progress": null,
-      "status": "active",
-      "source": "project",
+      "completed": [],
+      "pending": [],
+      "relatedNote": "notes/projects/openclaw-setup.md",
       "lastUpdated": "2026/3/30"
     },
     {
-      "id": "projnote-twse-crawler.md",
+      "id": "台股季報爬蟲專案記憶",
       "title": "台股季報爬蟲專案記憶",
+      "status": "active",
+      "progress": 0,
       "description": "- **股票清單**：`/Users/downtoearth/.openclaw/workspace/skills/台股季報/stocks_list.txt`（1944 檔）",
       "tags": [],
-      "path": "notes/projects/twse-crawler.md",
-      "type": "project-note",
-      "progress": null,
-      "status": "active",
-      "source": "project",
+      "completed": [],
+      "pending": [],
+      "relatedNote": "notes/projects/twse-crawler.md",
       "lastUpdated": "2026/4/1"
     },
     {
-      "id": "projnote-遊戲試做.md",
+      "id": "遊戲試做-—-專案計畫",
       "title": "遊戲試做 — 專案計畫",
+      "status": "active",
+      "progress": 0,
       "description": "創作一款對話式戀愛遊戲（類似 90 年代 Eroge），",
       "tags": [],
-      "path": "notes/projects/遊戲試做.md",
-      "type": "project-note",
-      "progress": null,
-      "status": "active",
-      "source": "project",
-      "lastUpdated": "2026/4/6"
-    },
-    {
-      "id": "projnote-龍蝦燈.md",
-      "title": "龍蝦燈 — 專案計畫",
-      "description": "讓 LED 面板根據 OpenClaw 的不同狀態呈現對應的光影效果，",
-      "tags": [],
-      "path": "notes/projects/龍蝦燈.md",
-      "type": "project-note",
-      "progress": null,
-      "status": "active",
-      "source": "project",
+      "completed": [],
+      "pending": [],
+      "relatedNote": "notes/projects/遊戲試做.md",
       "lastUpdated": "2026/4/6"
     }
   ],
+  "files": [],
   "memory": [
     {
       "id": "notes-proactive-ideas",
@@ -776,7 +739,7 @@
         "trigger": "HOOK: session:compact:before",
         "schedule": "per heartbeat poll",
         "nextRun": "等待觸發",
-        "lastRun": "未知",
+        "lastRun": "crawler-sync=週日23:00, semantic-sync=週一23:00；⚠️ 自訂網域仍指向舊預設頁",
         "status": "active",
         "history": [
           {
@@ -809,7 +772,7 @@
           },
           {
             "ok": true,
-            "text": "**CF Dashboard**：✅ v3 完成（統一記憶：notes+twse+memory+obsidian）；Jobs 改為中文名+可點擊看歷史；Research tab 移除；URL: `https://fb002d8b.openclaw-dashboard-dv8.pages.dev/`（2026-04-08）；Repo: `openclawGit200/openclaw-dashboard`；⚠️ 自訂網域 `openclaw-dashboard.pages.dev` 仍指向舊預設頁"
+            "text": "**CF Dashboard**：✅ v3 完成（統一記憶：notes+twse+memory+obsidian）；Jobs 改為中文名+可點擊看歷史+trigger顯示；Research tab 移除；URL: `https://594bb710.openclaw-dashboard-dv8.pages.dev/`（2026-04-08）；Repo: `openclawGit200/openclaw-dashboard`；排程已更新：crawler-sync=週日23:00, semantic-sync=週一23:00；⚠️ 自訂網域仍指向舊預設頁"
           },
           {
             "ok": true,

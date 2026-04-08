@@ -105,17 +105,32 @@ function parseProjectNotes() {
     const desc  = extractDesc(lines);
     const tags  = extractTags(txt);
     const pct   = txt.match(/進度[：:]\s*(\d+)/)?.[1] || null;
-    const status = txt.match(/狀態[：:]\s*([^\s]+)/)?.[1] || 'active';
-    data.files.push({
-      id:    `projnote-${slugify(file)}`,
-      title, description: desc, tags,
-      path:  `notes/projects/${file}`,
-      type:  'project-note',
-      progress: pct ? parseInt(pct) : null,
-      status,
-      source: 'project',
-      lastUpdated: fs.statSync(full).mtime.toLocaleDateString('zh-TW')
-    });
+    const statusMap = { '規劃中':'planning', '進行中':'active', '已完成':'completed', '擱置':'onhold' };
+    const rawStatus = txt.match(/狀態[：:]\s*([^\s]+)/)?.[1] || 'active';
+    const mappedStatus = statusMap[rawStatus] || 'active';
+    // 建立與 MEMORY.md 一致的 id
+    const id = slugify(title);
+    // 檢查是否已在 projects（來自 MEMORY.md），有的話更新，沒有的話新增
+    const existing = data.projects.find(p => p.id === id);
+    if (existing) {
+      existing.description = desc;
+      existing.progress = pct ? parseInt(pct) : existing.progress;
+      existing.status = mappedStatus;
+      existing.tags = [...new Set([...existing.tags, ...tags])];
+    } else {
+      data.projects.push({
+        id,
+        title,
+        status: mappedStatus,
+        progress: pct ? parseInt(pct) : 0,
+        description: desc,
+        tags,
+        completed: [],
+        pending: [],
+        relatedNote: `notes/projects/${file}`,
+        lastUpdated: fs.statSync(full).mtime.toLocaleDateString('zh-TW')
+      });
+    }
   }
 }
 
