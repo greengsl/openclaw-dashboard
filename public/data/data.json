@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated": "2026-04-08T02:43:23.394Z",
+    "generated": "2026-04-08T03:39:18.576Z",
     "workspace": "/Users/downtoearth/.openclaw/workspace"
   },
   "projects": [
@@ -9,11 +9,10 @@
       "title": "GLM Skills",
       "status": "active",
       "progress": 0,
-      "description": "已更新為 Z_AI_API_KEY（智譜 Zhipu）",
+      "description": "3個技能已安裝，summarize-config.json 已更新為 Z_AI_API_KEY（智譜 Zhipu）",
       "tags": [],
       "completed": [],
       "pending": [],
-      "relatedNote": null,
       "lastUpdated": "2026/4/8"
     },
     {
@@ -21,13 +20,12 @@
       "title": "台股季報爬蟲",
       "status": "completed",
       "progress": 100,
-      "description": "檔已完成（2025-Q4，`台股季報/2025/Q4/` 目測），skills target ~1871 檔",
+      "description": "1841 檔已完成（2025-Q4，`台股季報/2025/Q4/` 目測），skills target ~1871 檔",
       "tags": [],
       "completed": [],
       "pending": [
-        "舊記錄 862/1205 口徑待確認（可能是某次中斷後重啟的子集？）"
+        "MEMORY.md 舊記錄 862/1205 口徑待確認（可能是某次中斷後重啟的子集？）"
       ],
-      "relatedNote": "notes/projects/twse-crawler.md",
       "lastUpdated": "2026/4/8"
     },
     {
@@ -39,7 +37,6 @@
       "tags": [],
       "completed": [],
       "pending": [],
-      "relatedNote": "notes/projects/stock-report-email.md",
       "lastUpdated": "2026/4/8"
     },
     {
@@ -53,7 +50,6 @@
       "pending": [
         "`notes/projects/mempalace.md`（待建立）"
       ],
-      "relatedNote": "notes/projects/mempalace.md",
       "lastUpdated": "2026/4/8"
     },
     {
@@ -65,9 +61,8 @@
       "tags": [],
       "completed": [],
       "pending": [
-        "自訂網域待確認（目前 `dv8` subdomain 正常）"
+        "`openclaw-dashboard.pages.dev` 自訂網域待確認（目前 `dv8` subdomain 正常）"
       ],
-      "relatedNote": null,
       "lastUpdated": "2026/4/8"
     },
     {
@@ -78,10 +73,9 @@
       "description": "cascade 完整實作（tavily → Google → 被擋 → fallback）；tavily API 已加入 cascade 第一優先",
       "tags": [],
       "completed": [
-        "msg[\"Subject\"] 未設定 → ✅ 已修（2026-04-08）"
+        "send_email.py msg[\"Subject\"] 未設定 → ✅ 已修（2026-04-08）"
       ],
       "pending": [],
-      "relatedNote": null,
       "lastUpdated": "2026/4/8"
     },
     {
@@ -93,7 +87,6 @@
       "tags": [],
       "completed": [],
       "pending": [],
-      "relatedNote": "notes/projects/backup.md、notes/projects/github.md\n\n---\n\n## Recent Research（已完成，待用戶決定）\n\n存於 `notes/research/`：\n\n| 主題 | 日期 | 狀態 |\n|------|------|------|\n| OpenHarness | 2026-04-05 | 📖 研究完成，決定不安裝，借鑽架構 |\n| Agent-Threat-Rule | 2026-04-05 | 📖 研究完成，已移除安裝 |\n| GLM Skills | 2026-04-05 | ✅ 已決定安裝，已完成 |\n\n---\n\n## Key Decisions\n\n- **記憶系統重構方向（2026-04-06）**：\n  - 取消 MEMORY_INDEX.md，回歸 MEMORY.md（當 L1 指標）\n  - notes/research/ 放研究結果（還沒決定的）\n  - notes/projects/ 放執行中專案詳情\n  - memory/*.md 當 L3 原始日誌\n  - 每完成工作 → 被動更新 MEMORY.md",
       "lastUpdated": "2026/4/8"
     },
     {
@@ -105,7 +98,6 @@
       "tags": [],
       "completed": [],
       "pending": [],
-      "relatedNote": null,
       "lastUpdated": "2026/4/8"
     },
     {
@@ -117,232 +109,669 @@
       "tags": [],
       "completed": [],
       "pending": [],
-      "relatedNote": null,
       "lastUpdated": "2026/4/8"
     }
   ],
   "files": [
     {
-      "id": "projnote-163-email-monitor",
+      "id": "projnote-163-email-monitor.md",
       "title": "163 郵箱監控系統",
       "description": "- **郵箱：** 13543831490@163.com",
-      "path": "notes/projects/163-email-monitor.md",
       "tags": [],
+      "path": "notes/projects/163-email-monitor.md",
       "type": "project-note",
       "progress": null,
       "status": "active",
+      "source": "project",
       "lastUpdated": "2026/4/3"
     },
     {
-      "id": "projnote-backup",
+      "id": "projnote-backup.md",
       "title": "備份系統（GitHub 異地備份）",
       "description": "- **建立日期：** 2026-04-06",
-      "path": "notes/projects/backup.md",
       "tags": [],
+      "path": "notes/projects/backup.md",
       "type": "project-note",
       "progress": null,
       "status": "active",
+      "source": "project",
       "lastUpdated": "2026/4/6"
     },
     {
-      "id": "projnote-cloudflare",
+      "id": "projnote-cloudflare.md",
       "title": "Cloudflare 專案",
       "description": "在中國境內透過 Cloudflare Worker 代理訪問被封鎖的國外搜尋引擎。",
-      "path": "notes/projects/cloudflare.md",
       "tags": [],
+      "path": "notes/projects/cloudflare.md",
       "type": "project-note",
       "progress": null,
       "status": "active",
+      "source": "project",
       "lastUpdated": "2026/4/8"
     },
     {
-      "id": "projnote-github",
+      "id": "projnote-github.md",
       "title": "GitHub Skill 專案記憶",
       "description": "- **安裝日期：** 2026-04-03",
-      "path": "notes/projects/github.md",
       "tags": [],
+      "path": "notes/projects/github.md",
       "type": "project-note",
       "progress": null,
       "status": "active",
+      "source": "project",
       "lastUpdated": "2026/4/6"
     },
     {
-      "id": "projnote-karing-cf-optimization",
+      "id": "projnote-karing-cf-optimization.md",
       "title": "Karing + Cloudflare 連線優化計畫",
       "description": "優化 OpenClaw 對外（NVIDIA、MiniMax、Cloudflare）的連線品質與穩定性。",
-      "path": "notes/projects/karing-cf-optimization.md",
       "tags": [],
+      "path": "notes/projects/karing-cf-optimization.md",
       "type": "project-note",
       "progress": null,
       "status": "active",
+      "source": "project",
       "lastUpdated": "2026/4/5"
     },
     {
-      "id": "projnote-openclaw-setup",
+      "id": "projnote-openclaw-setup.md",
       "title": "OpenClaw Agent 設定記憶",
       "description": "- `f207d73a-059b-42ed-b202-6ee1b6c197a4` — **restart-gateway**（每3小時重啟，導致 LaunchAgent 孤兒化，已刪除）",
-      "path": "notes/projects/openclaw-setup.md",
       "tags": [],
+      "path": "notes/projects/openclaw-setup.md",
       "type": "project-note",
       "progress": null,
       "status": "active",
+      "source": "project",
       "lastUpdated": "2026/3/30"
     },
     {
-      "id": "projnote-twse-crawler",
+      "id": "projnote-twse-crawler.md",
       "title": "台股季報爬蟲專案記憶",
       "description": "- **股票清單**：`/Users/downtoearth/.openclaw/workspace/skills/台股季報/stocks_list.txt`（1944 檔）",
-      "path": "notes/projects/twse-crawler.md",
       "tags": [],
+      "path": "notes/projects/twse-crawler.md",
       "type": "project-note",
       "progress": null,
       "status": "active",
+      "source": "project",
       "lastUpdated": "2026/4/1"
     },
     {
-      "id": "projnote-遊戲試做",
+      "id": "projnote-遊戲試做.md",
       "title": "遊戲試做 — 專案計畫",
       "description": "創作一款對話式戀愛遊戲（類似 90 年代 Eroge），",
-      "path": "notes/projects/遊戲試做.md",
       "tags": [],
+      "path": "notes/projects/遊戲試做.md",
       "type": "project-note",
       "progress": null,
       "status": "active",
+      "source": "project",
       "lastUpdated": "2026/4/6"
     },
     {
-      "id": "projnote-龍蝦燈",
+      "id": "projnote-龍蝦燈.md",
       "title": "龍蝦燈 — 專案計畫",
       "description": "讓 LED 面板根據 OpenClaw 的不同狀態呈現對應的光影效果，",
-      "path": "notes/projects/龍蝦燈.md",
       "tags": [],
+      "path": "notes/projects/龍蝦燈.md",
       "type": "project-note",
       "progress": null,
       "status": "active",
+      "source": "project",
       "lastUpdated": "2026/4/6"
     }
   ],
   "memory": [
     {
-      "id": "mem-2026-03-17",
-      "title": "2026-03-17",
-      "description": "- 13:52 用户进行了测试消息发送，测试连通性",
+      "id": "notes-proactive-ideas",
+      "title": "Proactive Ideas",
+      "description": "**背景：** 主人正在研究「台股季報爬蟲」技能，需要多種依賴（pdftotext, summarize CLI, Obsidian 等）。",
       "tags": [],
-      "connections": [],
-      "date": "2026-03-17"
+      "source": "notes",
+      "path": "notes/areas/proactive-ideas.md",
+      "date": "2026-03-26",
+      "connections": []
     },
     {
-      "id": "mem-2026-03-18",
-      "title": "2026-03-18 日誌",
-      "description": "1. 清理了 `memory-lancedb-pro` 配置警告，從 config 中移除了已停用但還存在的配置條目",
+      "id": "notes-movies",
+      "title": "日劇觀察筆記",
+      "description": "| # | 日劇名 | 主演 | 類型 | 平台 |",
       "tags": [],
-      "connections": [],
-      "date": "2026-03-18"
+      "source": "notes",
+      "path": "notes/movies.md",
+      "date": "2026-03-31",
+      "connections": []
     },
     {
-      "id": "mem-2026-03-26",
-      "title": "2026-03-26 - 微信插件安裝問題解決日誌",
-      "description": "今日解決了微信插件安裝過程中的一系列問題，整理關鍵決策和經驗：",
+      "id": "notes-open-loops",
+      "title": "open-loops.md",
+      "description": "- [ ] `run_at_23h.py` 改用 launchd plist（`StartCalendarInterval`）替換 `time.sleep()`",
       "tags": [],
-      "connections": [],
-      "date": "2026-03-26"
+      "source": "notes",
+      "path": "notes/open-loops.md",
+      "date": "2026/3/31",
+      "connections": []
     },
     {
-      "id": "mem-2026-03-30-stock-crawler-session",
-      "title": "2026-03-30 台股季報爬蟲工作日誌",
-      "description": "- **現象**：使用 `--check-existing` 時，只要 Q4 目錄裡有任何 1 個筆記，全季都會被 skip",
+      "id": "notes-openclaw-weixin-install-troubleshooting",
+      "title": "OpenClaw 微信插件安裝故障排查",
+      "description": "检测到 OpenClaw 版本: 2026.2.26",
       "tags": [],
-      "connections": [],
-      "date": "2026-03-30"
+      "source": "notes",
+      "path": "notes/openclaw-weixin-install-troubleshooting.md",
+      "date": "2026-03-26",
+      "connections": []
     },
     {
-      "id": "mem-2026-03-31-api-research",
-      "title": "2026-03-31 API 研究記錄",
-      "description": "- 用戶提供新的 Fugle API Key: `fcdf5a2c-759e-46d0-a2ea-83f7a8ee68d8`",
+      "id": "notes-163-email-monitor",
+      "title": "163 郵箱監控系統",
+      "description": "- **郵箱：** 13543831490@163.com",
       "tags": [],
-      "connections": [],
-      "date": "2026-03-31"
+      "source": "notes",
+      "path": "notes/projects/163-email-monitor.md",
+      "date": "2026-04-03",
+      "connections": []
     },
     {
-      "id": "mem-2026-04-02-zhipu-cloudflare",
-      "title": "2026-04-02 Daily Notes",
-      "description": "- **embeddinggemma** replaced all-minilm → `openclaw.json` `memorySearch.model` set to `embeddinggemma:latest` (2048 tok",
+      "id": "notes-backup",
+      "title": "備份系統（GitHub 異地備份）",
+      "description": "- **建立日期：** 2026-04-06",
       "tags": [],
-      "connections": [],
-      "date": "2026-04-02"
+      "source": "notes",
+      "path": "notes/projects/backup.md",
+      "date": "2026-04-06",
+      "connections": []
     },
     {
-      "id": "mem-2026-04-02-zhipu-worker",
-      "title": "2026-04-02 日記",
-      "description": "- 模型：embeddinggemma:latest（2048 tokens，768 維向量，BF16，621 MB）",
+      "id": "notes-cloudflare",
+      "title": "Cloudflare 專案",
+      "description": "在中國境內透過 Cloudflare Worker 代理訪問被封鎖的國外搜尋引擎。",
       "tags": [],
-      "connections": [],
-      "date": "2026-04-02"
+      "source": "notes",
+      "path": "notes/projects/cloudflare.md",
+      "date": "2026-04-07",
+      "connections": []
     },
     {
-      "id": "mem-2026-04-03",
-      "title": "2026-04-03 Daily Memory",
-      "description": "- **三層 subdomain SSL 問題已擱置**：worker.downtoearthclf.ddns-ip.net 三層 subdomain，CF Universal SSL 不支援果三層，決定不再處理",
+      "id": "notes-github",
+      "title": "GitHub Skill 專案記憶",
+      "description": "- **安裝日期：** 2026-04-03",
       "tags": [],
-      "connections": [],
-      "date": "2026-04-03"
+      "source": "notes",
+      "path": "notes/projects/github.md",
+      "date": "2026-04-03",
+      "connections": []
     },
     {
-      "id": "mem-2026-04-07",
-      "title": "Memory Flush — 2026-04-07（凌晨 01:02）",
-      "description": "- **Repo**: `openclawGit200/openclaw-backup`（public，~26MB）",
+      "id": "notes-karing-cf-optimization",
+      "title": "Karing + Cloudflare 連線優化計畫",
+      "description": "優化 OpenClaw 對外（NVIDIA、MiniMax、Cloudflare）的連線品質與穩定性。",
       "tags": [],
-      "connections": [],
-      "date": "2026-04-07"
-    }
-  ],
-  "research": [
+      "source": "notes",
+      "path": "notes/projects/karing-cf-optimization.md",
+      "date": "2026-04-05",
+      "connections": []
+    },
     {
-      "id": "res-agent-threat-rule",
+      "id": "notes-openclaw-setup",
+      "title": "OpenClaw Agent 設定記憶",
+      "description": "- `f207d73a-059b-42ed-b202-6ee1b6c197a4` — **restart-gateway**（每3小時重啟，導致 LaunchAgent 孤兒化，已刪除）",
+      "tags": [],
+      "source": "notes",
+      "path": "notes/projects/openclaw-setup.md",
+      "date": "2026/3/30",
+      "connections": []
+    },
+    {
+      "id": "notes-twse-crawler",
+      "title": "台股季報爬蟲專案記憶",
+      "description": "- **股票清單**：`/Users/downtoearth/.openclaw/workspace/skills/台股季報/stocks_list.txt`（1944 檔）",
+      "tags": [],
+      "source": "notes",
+      "path": "notes/projects/twse-crawler.md",
+      "date": "2026-03-31",
+      "connections": []
+    },
+    {
+      "id": "notes-遊戲試做",
+      "title": "遊戲試做 — 專案計畫",
+      "description": "創作一款對話式戀愛遊戲（類似 90 年代 Eroge），",
+      "tags": [],
+      "source": "notes",
+      "path": "notes/projects/遊戲試做.md",
+      "date": "2026-04-06",
+      "connections": []
+    },
+    {
+      "id": "notes-龍蝦燈",
+      "title": "龍蝦燈 — 專案計畫",
+      "description": "讓 LED 面板根據 OpenClaw 的不同狀態呈現對應的光影效果，",
+      "tags": [],
+      "source": "notes",
+      "path": "notes/projects/龍蝦燈.md",
+      "date": "2026-04-04",
+      "connections": []
+    },
+    {
+      "id": "notes-agent-threat-rule",
       "title": "Agent-Threat-Rule 研究",
-      "description": "> 研究日期：2026-04-05",
+      "description": "https://github.com/Agent-Threat-Rule/agent-threat-rules",
+      "tags": [],
+      "source": "notes",
       "path": "notes/research/agent-threat-rule.md",
-      "tags": [],
-      "status": "❌",
-      "date": "2026-04-05"
+      "date": "2026-04-05",
+      "connections": []
     },
     {
-      "id": "res-glm-skills",
+      "id": "notes-glm-skills",
       "title": "GLM Skills 研究",
-      "description": "> 研究日期：2026-04-05",
-      "path": "notes/research/glm-skills.md",
+      "description": "https://github.com/zai-org/GLM-skills",
       "tags": [],
-      "status": "✅",
-      "date": "2026-04-05"
+      "source": "notes",
+      "path": "notes/research/glm-skills.md",
+      "date": "2026-04-05",
+      "connections": []
     },
     {
-      "id": "res-openclaw-agents-md-sop",
+      "id": "notes-openclaw-agents-md-sop",
       "title": "研究：OpenClaw AGENTS.md 配置 SOP（微信文章）",
       "description": "- **標題：** OpenClaw 總失控？你缺的不是 Skill，是一份 AGENTS.md 配置 SOP",
-      "path": "notes/research/openclaw-agents-md-sop.md",
       "tags": [
         "1",
         "3",
         "4",
         "6"
       ],
-      "status": "研究",
-      "date": "2026-04-06"
+      "source": "notes",
+      "path": "notes/research/openclaw-agents-md-sop.md",
+      "date": "2026-04-06",
+      "connections": []
     },
     {
-      "id": "res-openharness",
+      "id": "notes-openharness",
       "title": "OpenHarness 研究",
-      "description": "> 研究日期：2026-04-05",
-      "path": "notes/research/openharness.md",
+      "description": "https://github.com/thu-nmrc/OpenHarness",
       "tags": [],
-      "status": "📖",
-      "date": "2026-04-05"
+      "source": "notes",
+      "path": "notes/research/openharness.md",
+      "date": "2026-04-05",
+      "connections": []
+    },
+    {
+      "id": "notes-weixin-plugin-install-guide",
+      "title": "微信插件安裝指南",
+      "description": "需要 OpenClaw >= 2026.3.22",
+      "tags": [],
+      "source": "notes",
+      "path": "notes/weixin-plugin-install-guide.md",
+      "date": "2026-03-26",
+      "connections": []
+    },
+    {
+      "id": "twse-1227-佳格-2025q3",
+      "title": "1227 佳格 - 2025 Q3 財務報告",
+      "description": "- **財報PDF**:: [[/Users/downtoearth/.openclaw/workspace/financial_reports/202503_1227_AI1.pdf]]",
+      "tags": [],
+      "source": "twse",
+      "stockId": "1227",
+      "companyName": "佳格 2025Q3",
+      "path": "financial_notes/1227-佳格-2025Q3.md",
+      "date": "2026/3/17",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1101-臺灣水泥股份有限公司",
+      "title": "2025Q3 - 1101 臺灣水泥股份有限公司",
+      "description": "- **公司名稱**: 臺灣水泥股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1101 臺灣水泥股份有限公司",
+      "path": "financial_notes/2025Q3 - 1101 臺灣水泥股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1102-亞洲水泥股份有限公司",
+      "title": "2025Q3 - 1102 亞洲水泥股份有限公司",
+      "description": "- **公司名稱**: 亞洲水泥股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1102 亞洲水泥股份有限公司",
+      "path": "financial_notes/2025Q3 - 1102 亞洲水泥股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1103-嘉新水泥股份有限公司",
+      "title": "2025Q3 - 1103 嘉新水泥股份有限公司",
+      "description": "- **公司名稱**: 嘉新水泥股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1103 嘉新水泥股份有限公司",
+      "path": "financial_notes/2025Q3 - 1103 嘉新水泥股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1104-none",
+      "title": "2025Q3 - 1104 None",
+      "description": "- **年度**: 2025 年 (第 3 季)",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1104 None",
+      "path": "financial_notes/2025Q3 - 1104 None.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1108-幸福水泥股份有限公司",
+      "title": "2025Q3 - 1108 幸福水泥股份有限公司",
+      "description": "- **公司名稱**: 幸福水泥股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1108 幸福水泥股份有限公司",
+      "path": "financial_notes/2025Q3 - 1108 幸福水泥股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1109-信大水泥股份有限公司",
+      "title": "2025Q3 - 1109 信大水泥股份有限公司",
+      "description": "- **公司名稱**: 信大水泥股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1109 信大水泥股份有限公司",
+      "path": "financial_notes/2025Q3 - 1109 信大水泥股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1110-東南水泥股份有限公司",
+      "title": "2025Q3 - 1110 東南水泥股份有限公司",
+      "description": "- **公司名稱**: 東南水泥股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1110 東南水泥股份有限公司",
+      "path": "financial_notes/2025Q3 - 1110 東南水泥股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1201-味全食品工業股份有限公司",
+      "title": "2025Q3 - 1201 味全食品工業股份有限公司",
+      "description": "- **公司名稱**: 味全食品工業股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1201 味全食品工業股份有限公司",
+      "path": "financial_notes/2025Q3 - 1201 味全食品工業股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1203-味王股份有限公司",
+      "title": "2025Q3 - 1203 味王股份有限公司",
+      "description": "- **年度**: 2025 年 (第 3 季)",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1203 味王股份有限公司",
+      "path": "financial_notes/2025Q3 - 1203 味王股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1210-大成長城企業股份有限公司",
+      "title": "2025Q3 - 1210 大成長城企業股份有限公司",
+      "description": "- **公司名稱**: 大成長城企業股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1210 大成長城企業股份有限公司",
+      "path": "financial_notes/2025Q3 - 1210 大成長城企業股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1213-大西洋飲料股份有限公司",
+      "title": "2025Q3 - 1213 大西洋飲料股份有限公司",
+      "description": "- **公司名稱**: 大西洋飲料股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1213 大西洋飲料股份有限公司",
+      "path": "financial_notes/2025Q3 - 1213 大西洋飲料股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1216-統一企業股份有限公司",
+      "title": "2025Q3 - 1216 統一企業股份有限公司",
+      "description": "- **公司名稱**: 統一企業股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1216 統一企業股份有限公司",
+      "path": "financial_notes/2025Q3 - 1216 統一企業股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1217-愛之味股份有限公司",
+      "title": "2025Q3 - 1217 愛之味股份有限公司",
+      "description": "- **公司名稱**: 愛之味股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1217 愛之味股份有限公司",
+      "path": "financial_notes/2025Q3 - 1217 愛之味股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1218-泰山企業股份有限公司",
+      "title": "2025Q3 - 1218 泰山企業股份有限公司",
+      "description": "- **公司名稱**: 泰山企業股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1218 泰山企業股份有限公司",
+      "path": "financial_notes/2025Q3 - 1218 泰山企業股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1219-福壽實業股份有限公司",
+      "title": "2025Q3 - 1219 福壽實業股份有限公司",
+      "description": "- **公司名稱**: 福壽實業股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1219 福壽實業股份有限公司",
+      "path": "financial_notes/2025Q3 - 1219 福壽實業股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1220-台榮產業股份有限公司",
+      "title": "2025Q3 - 1220 台榮產業股份有限公司",
+      "description": "- **公司名稱**: 台榮產業股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1220 台榮產業股份有限公司",
+      "path": "financial_notes/2025Q3 - 1220 台榮產業股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1225-福懋油脂股份有限公司",
+      "title": "2025Q3 - 1225 福懋油脂股份有限公司",
+      "description": "- **公司名稱**: 福懋油脂股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1225 福懋油脂股份有限公司",
+      "path": "financial_notes/2025Q3 - 1225 福懋油脂股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1227-佳格食品股份有限公司",
+      "title": "2025Q3 - 1227 佳格食品股份有限公司",
+      "description": "- **公司名稱**: 佳格食品股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1227 佳格食品股份有限公司",
+      "path": "financial_notes/2025Q3 - 1227 佳格食品股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "twse-2025q3---1229-聯華實業控股股份有限公司",
+      "title": "2025Q3 - 1229 聯華實業控股股份有限公司",
+      "description": "- **公司名稱**: 聯華實業控股股份有限公司",
+      "tags": [],
+      "source": "twse",
+      "stockId": "2025",
+      "companyName": "Q3   1229 聯華實業控股股份有限公司",
+      "path": "financial_notes/2025Q3 - 1229 聯華實業控股股份有限公司.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "memory-2026-03-17",
+      "title": "2026-03-17",
+      "description": "- 13:52 用户进行了测试消息发送，测试连通性",
+      "tags": [],
+      "source": "memory",
+      "stockId": "2026",
+      "companyName": "03 17",
+      "path": "memory/2026-03-17.md",
+      "date": "2026-03-17",
+      "connections": []
+    },
+    {
+      "id": "memory-2026-03-18",
+      "title": "2026-03-18 日誌",
+      "description": "1. 清理了 `memory-lancedb-pro` 配置警告，從 config 中移除了已停用但還存在的配置條目",
+      "tags": [],
+      "source": "memory",
+      "stockId": "2026",
+      "companyName": "03 18",
+      "path": "memory/2026-03-18.md",
+      "date": "2026-03-18",
+      "connections": []
+    },
+    {
+      "id": "memory-2026-03-26",
+      "title": "2026-03-26 - 微信插件安裝問題解決日誌",
+      "description": "今日解決了微信插件安裝過程中的一系列問題，整理關鍵決策和經驗：",
+      "tags": [],
+      "source": "memory",
+      "stockId": "2026",
+      "companyName": "03 26",
+      "path": "memory/2026-03-26.md",
+      "date": "2026-03-26",
+      "connections": []
+    },
+    {
+      "id": "memory-2026-03-30-stock-crawler-session",
+      "title": "2026-03-30 台股季報爬蟲工作日誌",
+      "description": "- **現象**：使用 `--check-existing` 時，只要 Q4 目錄裡有任何 1 個筆記，全季都會被 skip",
+      "tags": [],
+      "source": "memory",
+      "stockId": "2026",
+      "companyName": "03 30 stock crawler session",
+      "path": "memory/2026-03-30-stock-crawler-session.md",
+      "date": "2026-03-30",
+      "connections": []
+    },
+    {
+      "id": "memory-2026-03-31-api-research",
+      "title": "2026-03-31 API 研究記錄",
+      "description": "- 用戶提供新的 Fugle API Key: `fcdf5a2c-759e-46d0-a2ea-83f7a8ee68d8`",
+      "tags": [],
+      "source": "memory",
+      "stockId": "2026",
+      "companyName": "03 31 api research",
+      "path": "memory/2026-03-31-api-research.md",
+      "date": "2026-03-31",
+      "connections": []
+    },
+    {
+      "id": "memory-2026-04-02-zhipu-cloudflare",
+      "title": "2026-04-02 Daily Notes",
+      "description": "- **embeddinggemma** replaced all-minilm → `openclaw.json` `memorySearch.model` set to `embeddinggemma:latest` (2048 tok",
+      "tags": [],
+      "source": "memory",
+      "stockId": "2026",
+      "companyName": "04 02 zhipu cloudflare",
+      "path": "memory/2026-04-02-zhipu-cloudflare.md",
+      "date": "2026-04-02",
+      "connections": []
+    },
+    {
+      "id": "memory-2026-04-02-zhipu-worker",
+      "title": "2026-04-02 日記",
+      "description": "- 模型：embeddinggemma:latest（2048 tokens，768 維向量，BF16，621 MB）",
+      "tags": [],
+      "source": "memory",
+      "stockId": "2026",
+      "companyName": "04 02 zhipu worker",
+      "path": "memory/2026-04-02-zhipu-worker.md",
+      "date": "2026-04-02",
+      "connections": []
+    },
+    {
+      "id": "memory-2026-04-03",
+      "title": "2026-04-03 Daily Memory",
+      "description": "- **三層 subdomain SSL 問題已擱置**：worker.downtoearthclf.ddns-ip.net 三層 subdomain，CF Universal SSL 不支援果三層，決定不再處理",
+      "tags": [],
+      "source": "memory",
+      "stockId": "2026",
+      "companyName": "04 03",
+      "path": "memory/2026-04-03.md",
+      "date": "2026-04-03",
+      "connections": []
+    },
+    {
+      "id": "memory-2026-04-07",
+      "title": "Memory Flush — 2026-04-07（凌晨 01:02）",
+      "description": "- **Repo**: `openclawGit200/openclaw-backup`（public，~26MB）",
+      "tags": [],
+      "source": "memory",
+      "stockId": "2026",
+      "companyName": "04 07",
+      "path": "memory/2026-04-07.md",
+      "date": "2026-04-07",
+      "connections": []
+    },
+    {
+      "id": "obsidian-locus-of-control-2024",
+      "title": "Locus of Control (2024)",
+      "description": "title: Locus of Control",
+      "tags": [],
+      "source": "obsidian",
+      "path": "../../Documents/Obsidian/Movies/Locus of Control (2024).md",
+      "date": "2026/4/2",
+      "connections": []
     }
   ],
+  "relationships": [],
   "jobs": {
     "heartbeat": {
       "last": "unknown",
-      "next": "per heartbeat poll",
+      "next": "等待觸發",
       "schedule": "per heartbeat poll",
       "history": []
     },
@@ -403,13 +832,5 @@
       ],
       "history": []
     }
-  },
-  "relationships": [
-    {
-      "from": "台股季報爬蟲",
-      "to": "projnote-twse-crawler",
-      "type": "has-note",
-      "strength": 3
-    }
-  ]
+  }
 }
