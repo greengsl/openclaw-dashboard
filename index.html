@@ -3,43 +3,217 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>個人看板</title>
+  <title>個人看板 — OpenClaw</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Graph Canvas ── */
+    #graph-section { display: none; }
+    #graph-section.active { display: flex; flex-direction: column; gap: 16px; }
+    #graph-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      height: 560px;
+      position: relative;
+    }
+    #graph-canvas { width: 100%; height: 100%; }
+    #graph-legend {
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(13,17,23,0.85);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: var(--muted);
+      pointer-events: none;
+    }
+    #graph-legend .leg-item { display: flex; align-items: center; gap: 6px; margin: 3px 0; }
+    .leg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+    #graph-info {
+      position: absolute; bottom: 12px; left: 12px;
+      background: rgba(13,17,23,0.85);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 8px 12px;
+      font-size: 12px;
+      color: var(--accent);
+      min-width: 200px;
+      transition: opacity 0.2s;
+    }
+    #graph-info.hidden { opacity: 0; pointer-events: none; }
+    #graph-info .gi-title { font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    #graph-info .gi-type { font-size: 11px; color: var(--muted); }
+    #graph-info .gi-tags { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 4px; }
+    #graph-info a { color: var(--accent); }
+
+    /* ── Graph Controls ── */
+    .graph-controls {
+      display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
+    }
+    .graph-controls select {
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--text); padding: 5px 10px; border-radius: 6px;
+      font-size: 13px; font-family: inherit; cursor: pointer;
+    }
+    .graph-controls select:focus { outline: none; border-color: var(--accent); }
+    .graph-controls label { font-size: 13px; color: var(--muted); }
+
+    /* ── Section header stats ── */
+    .section-stats {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+    .stat-chip {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 4px 12px;
+      font-size: 12px; color: var(--muted);
+    }
+    .stat-chip span { color: var(--accent); font-weight: 600; }
+
+    /* ── Job Timeline ── */
+    .job-timeline { display: flex; flex-direction: column; gap: 12px; }
+    .job-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 16px;
+    }
+    .job-item-header { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .job-type-badge {
+      font-size: 10px; padding: 2px 7px; border-radius: 10px;
+      font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .job-type-badge.heartbeat { background: rgba(63,185,80,0.15); color: var(--green); }
+    .job-type-badge.cron { background: rgba(88,166,255,0.15); color: var(--accent); }
+    .job-type-badge.launchctl { background: rgba(210,153,34,0.15); color: var(--yellow); }
+    .job-label { font-size: 13px; font-weight: 600; color: var(--text); }
+    .job-schedule { font-size: 12px; color: var(--muted); margin-left: auto; }
+    .job-next { font-size: 12px; color: var(--yellow); margin-top: 4px; }
+    .job-last { font-size: 11px; color: var(--muted); }
+    .job-history { margin-top: 8px; }
+    .job-history-item {
+      display: flex; gap: 8px; align-items: center;
+      font-size: 12px; color: var(--muted);
+      padding: 3px 0; border-bottom: 1px solid rgba(48,54,61,0.4);
+    }
+    .job-history-item:last-child { border-bottom: none; }
+    .jh-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .jh-ok { background: var(--green); }
+    .jh-fail { background: var(--red); }
+    .jh-unknown { background: var(--muted); }
+
+    /* ── Force node colors ── */
+    .node-project  { fill: #58a6ff; }
+    .node-memory   { fill: #3fb950; }
+    .node-research { fill: #d29922; }
+    .node-file     { fill: #bc8cff; }
+    .link { stroke: #30363d; stroke-opacity: 0.6; }
+    .link.tag      { stroke: #58a6ff; stroke-opacity: 0.4; }
+    .link.has-note { stroke: #d29922; stroke-opacity: 0.6; stroke-dasharray: 3,3; }
+    .node { cursor: pointer; }
+    .node circle { stroke: #161b22; stroke-width: 1.5px; transition: r 0.15s; }
+    .node:hover circle { stroke-width: 2.5px; }
+    .node text { fill: #e6edf3; font-size: 11px; pointer-events: none; dominant-baseline: middle; text-anchor: middle; }
+
+    /* ── D3 tooltip ── */
+    .d3-tooltip {
+      position: fixed; background: rgba(22,27,34,0.95);
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 8px 12px; font-size: 12px; color: var(--text);
+      pointer-events: none; z-index: 9999;
+      max-width: 220px; display: none;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>個人看板</h1>
+    <h1>🧠 個人看板</h1>
     <nav>
       <button class="tab active" data-tab="projects">專案</button>
-      <button class="tab" data-tab="files">檔案</button>
-      <button class="tab" data-tab="memory">記憶</button>
-      <button class="tab" data-tab="research">研究</button>
-      <button class="tab" data-tab="jobs">定時作業</button>
+      <button class="tab" data-tab="files">📁 檔案</button>
+      <button class="tab" data-tab="memory">🧩 記憶</button>
+      <button class="tab" data-tab="research">🔬 研究</button>
+      <button class="tab" data-tab="jobs">⏰ 定時作業</button>
+      <button class="tab" data-tab="graph-section">🕸️ 關聯圖</button>
     </nav>
   </header>
 
   <main>
+    <!-- PROJECTS -->
     <section id="projects" class="tab-content active">
+      <div class="section-stats" id="projects-stats"></div>
       <div class="grid" id="projects-grid"></div>
     </section>
+
+    <!-- FILES -->
     <section id="files" class="tab-content">
+      <div class="section-stats" id="files-stats"></div>
       <div class="grid" id="files-grid"></div>
     </section>
+
+    <!-- MEMORY -->
     <section id="memory" class="tab-content">
+      <div class="section-stats" id="memory-stats"></div>
       <div class="grid" id="memory-grid"></div>
     </section>
+
+    <!-- RESEARCH -->
     <section id="research" class="tab-content">
+      <div class="section-stats" id="research-stats"></div>
       <div class="grid" id="research-grid"></div>
     </section>
+
+    <!-- JOBS -->
     <section id="jobs" class="tab-content">
-      <div class="grid" id="jobs-grid"></div>
+      <div class="job-timeline" id="jobs-list"></div>
+    </section>
+
+    <!-- GRAPH -->
+    <section id="graph-section" class="tab-content">
+      <div class="graph-controls">
+        <label>顯示：</label>
+        <select id="graph-type-filter">
+          <option value="all">全部節點</option>
+          <option value="project">專案</option>
+          <option value="memory">記憶</option>
+          <option value="research">研究</option>
+          <option value="file">檔案</option>
+        </select>
+        <label>連線：</label>
+        <select id="graph-link-filter">
+          <option value="all">所有連線</option>
+          <option value="tag">標籤連線</option>
+        </select>
+        <span class="stat-chip" id="graph-node-count"></span>
+      </div>
+      <div id="graph-wrap">
+        <svg id="graph-canvas"></svg>
+        <div id="graph-legend">
+          <div class="leg-item"><div class="leg-dot" style="background:#58a6ff"></div> 專案</div>
+          <div class="leg-item"><div class="leg-dot" style="background:#3fb950"></div> 記憶</div>
+          <div class="leg-item"><div class="leg-dot" style="background:#d29922"></div> 研究</div>
+          <div class="leg-item"><div class="leg-dot" style="background:#bc8cff"></div> 檔案</div>
+          <div style="margin-top:8px;border-top:1px solid #30363d;padding-top:8px">
+          <div class="leg-item"><div style="width:20px;border-top:1px solid #58a6ff;opacity:0.6"></div> 標籤關聯</div>
+          <div class="leg-item"><div style="width:20px;border-top:1px dashed #d29922;opacity:0.6"></div> 包含筆記</div>
+          </div>
+        </div>
+        <div id="graph-info" class="hidden">
+          <div class="gi-title" id="gi-title"></div>
+          <div class="gi-type" id="gi-type"></div>
+          <div class="gi-tags" id="gi-tags"></div>
+          <div id="gi-desc" style="margin-top:6px;font-size:12px;color:#8b949e"></div>
+          <div id="gi-link" style="margin-top:4px"></div>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer>
-    最後更新：<span id="last-updated"></span>
+    資料更新：<span id="last-updated"></span> &nbsp;·&nbsp;
+    <span id="source-note"></span>
   </footer>
 
+  <div class="d3-tooltip" id="d3-tooltip"></div>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

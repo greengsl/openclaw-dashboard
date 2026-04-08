@@ -1,0 +1,6 @@
+[pages]
+compatibility_flags = ["nodejs_compat"]
+
+[env.production]
+name = "openclaw-dashboard"
+compatibility_flags = ["nodejs_compat"]
