@@ -1,0 +1,23 @@
+[
+  {
+    "id": "dashboard-deploy",
+    "title": "Dashboard 手動部署成功",
+    "summary": "2026-04-09 成功使用 wrangler 手動部署 Dashboard 到 Cloudflare Pages，看板已上線。",
+    "tags": ["dashboard", "cloudflare", "deploy"],
+    "date": "2026-04-09"
+  },
+  {
+    "id": "auto-deploy-issue",
+    "title": "自動部署遇到權限問題",
+    "summary": "Cloudflare Pages 自動部署持續遇到 Authentication error，需手動設定或暫時使用手動部署。",
+    "tags": ["cloudflare", "deploy", "issue"],
+    "date": "2026-04-09"
+  },
+  {
+    "id": "news-podcast-cron",
+    "title": "新聞 PODCAST 自動化運作中",
+    "summary": "每日上午 7:00 自動生成每日新聞 PODCAST，使用 Edge TTS 轉換為 MP3 並上傳到 Google Drive。",
+    "tags": ["podcast", "automation", "cron"],
+    "date": "2026-04-09"
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "id": "scripts",
+    "title": "腳本檔案",
+    "description": "新聞生成、Dashboard 更新、自動化腳本",
+    "path": "scripts/",
+    "tags": ["script", "automation", "python"],
+    "lastUpdated": "2026-04-09",
+    "count": "3 個主要腳本"
+  },
+  {
+    "id": "memory",
+    "title": "記憶檔案",
+    "description": "每日記憶與長期記憶",
+    "path": "memory/",
+    "tags": ["memory", "notes", "daily"],
+    "lastUpdated": "2026-04-09",
+    "count": "每日記憶檔案"
+  },
+  {
+    "id": "data",
+    "title": "Dashboard 資料",
+    "description": "供 Cloudflare Pages 使用的 JSON 資料檔案",
+    "path": "public/data/",
+    "tags": ["json", "data", "dashboard"],
+    "lastUpdated": "2026-04-09",
+    "count": "5 個 JSON 檔案"
+  }
+]

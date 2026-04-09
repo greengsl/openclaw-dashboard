@@ -1,0 +1,35 @@
+[
+  {
+    "id": "news-podcast",
+    "title": "每日新聞 PODCAST",
+    "description": "自動抓取新聞並生成 MP3，自動上傳到 Google Drive",
+    "status": "active",
+    "progress": 90,
+    "tags": ["automation", "podcast", "news"],
+    "lastUpdated": "2026-04-09",
+    "completed": ["腳本生成", "MP3 製作", "Drive 上傳", "Edge TTS 整合"],
+    "pending": ["Spotify 自動發布", "錯誤處理優化"]
+  },
+  {
+    "id": "dashboard",
+    "title": "OpenClaw 視覺化看板",
+    "description": "靜態 JSON 資料看板，展示專案、記憶、排程狀態",
+    "status": "active",
+    "progress": 85,
+    "tags": ["dashboard", "frontend", "cloudflare"],
+    "lastUpdated": "2026-04-09",
+    "completed": ["JSON 生成腳本", "GitHub 推送", "Cloudflare 部署", "手動部署流程"],
+    "pending": ["自動更新排程", "自動部署 fixing"]
+  },
+  {
+    "id": "medication-reminder",
+    "title": "用藥提醒系統",
+    "description": "每日用藥時間自動提醒",
+    "status": "planning",
+    "progress": 30,
+    "tags": ["health", "reminder"],
+    "lastUpdated": "2026-04-09",
+    "completed": ["需求確認"],
+    "pending": ["提醒邏輯設計", "通知整合"]
+  }
+]

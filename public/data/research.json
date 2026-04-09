@@ -1,0 +1,20 @@
+[
+  {
+    "id": "tts-comparison",
+    "topic": "語音合成工具比較",
+    "status": "completed",
+    "summary": "選擇 Edge TTS (Microsoft) 因其免費且發音自然。已整合到新聞 PODCAST 流程。",
+    "tags": ["tts", "edge-tts", "comparison"],
+    "date": "2026-04-09",
+    "links": []
+  },
+  {
+    "id": "cloudflare-pages",
+    "topic": "Cloudflare Pages 靜態部署",
+    "status": "in-progress",
+    "summary": "建立 openclaw-dashboard-wei 專案，使用 wrangler pages deploy 手動部署 JSON 資料。遇到自動部署權限問題待解決。",
+    "tags": ["cloudflare", "pages", "deploy"],
+    "date": "2026-04-09",
+    "links": []
+  }
+]

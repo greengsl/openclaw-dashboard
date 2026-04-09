@@ -1,0 +1,24 @@
+[
+  {
+    "id": "news-podcast-cron",
+    "name": "每日新聞 PODCAST",
+    "type": "cron",
+    "description": "每天上午 7:00 自動抓取 AI 新聞並生成 MP3",
+    "schedule": "每天 07:00",
+    "nextRun": "2026-04-10 07:00:00",
+    "lastRun": "2026-04-09 07:00:00",
+    "lastStatus": "ok",
+    "lastResult": "成功生成 MP3 並上傳至 Google Drive"
+  },
+  {
+    "id": "dashboard-update-cron",
+    "name": "Dashboard 自動更新",
+    "type": "cron",
+    "description": "每天更新 Dashboard JSON 資料並推送至 GitHub",
+    "schedule": "每天 (待設定)",
+    "nextRun": "待定",
+    "lastRun": "2026-04-09 13:24:00",
+    "lastStatus": "running",
+    "lastResult": "手動更新執行中"
+  }
+]
