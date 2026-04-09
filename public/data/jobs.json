@@ -1,24 +1,41 @@
 [
   {
-    "id": "news-podcast-cron",
-    "name": "每日新聞 PODCAST",
+    "id": "3489f052-3618-4e78-8f52-70ccee82b88c",
+    "name": "每日新聞 PODCAST (MP3 版)",
     "type": "cron",
-    "description": "每天上午 7:00 自動抓取 AI 新聞並生成 MP3",
-    "schedule": "每天 07:00",
+    "description": "每天上午 7:00 自動抓取 AI 新聞並生成 MP3，上傳至 Google Drive",
+    "schedule": "0 7 * * * (Asia/Taipei)",
     "nextRun": "2026-04-10 07:00:00",
     "lastRun": "2026-04-09 07:00:00",
     "lastStatus": "ok",
-    "lastResult": "成功生成 MP3 並上傳至 Google Drive"
+    "lastResult": "成功生成 MP3 並上傳至 Google Drive",
+    "agentId": null,
+    "model": null
+  },
+  {
+    "id": "3775c7b3-543a-4aa8-a6c6-09136bb810af",
+    "name": "用藥提醒_重複",
+    "type": "cron",
+    "description": "每 2 天執行一次用藥提醒",
+    "schedule": "every 2 days",
+    "nextRun": "2026-04-11 (預計)",
+    "lastRun": "2026-04-09 (2 天前)",
+    "lastStatus": "idle",
+    "lastResult": "等待下一次執行",
+    "agentId": null,
+    "model": null
   },
   {
     "id": "dashboard-update-cron",
     "name": "Dashboard 自動更新",
     "type": "cron",
     "description": "每天更新 Dashboard JSON 資料並推送至 GitHub",
-    "schedule": "每天 (待設定)",
+    "schedule": "待定 (目前手動執行)",
     "nextRun": "待定",
-    "lastRun": "2026-04-09 13:24:00",
-    "lastStatus": "running",
-    "lastResult": "手動更新執行中"
+    "lastRun": "2026-04-09 13:33:00",
+    "lastStatus": "success",
+    "lastResult": "手動更新 JSON 檔案並推送至 GitHub",
+    "agentId": null,
+    "model": null
   }
 ]
