@@ -79,6 +79,34 @@ function render() {
 async function init() {
   ALL_DATA = await loadData();
   render();
+  // 每 30 秒自動刷新 Jobs 狀態
+  if (ALL_DATA && ALL_DATA.jobs && ALL_DATA.jobs.items.length > 0) {
+    setInterval(refreshJobs, 30000);
+  }
+}
+
+async function refreshJobs() {
+  try {
+    const res = await fetch(DATA_URL);
+    if (res.ok) {
+      const newData = await res.json();
+      if (newData.jobs) {
+        ALL_DATA.jobs = newData.jobs;
+        renderJobs(newData.jobs);
+        // 如果有 Modal 打開，更新內容
+        const modal = $('job-modal');
+        if (modal.style.display === 'flex') {
+          const visibleId = modal.dataset.jobId;
+          if (visibleId) {
+            const job = newData.jobs.items.find(j => j.id === visibleId);
+            if (job) openJobModal(job);
+          }
+        }
+      }
+    }
+  } catch (e) {
+    console.error('Refresh jobs failed:', e);
+  }
 }
 
 // ── Project Modal ──────────────────────────────────────────────────────────
@@ -238,17 +266,59 @@ function openJobModal(job) {
   $('jm-trigger').textContent = job.trigger;
   $('jm-next').textContent = job.nextRun || '—';
   $('jm-last').textContent = job.lastRun || '—';
+  $('job-modal').dataset.jobId = job.id;
+  
+  // 加入「立即執行」按鈕（如果支援）
+  const triggerEl = $('jm-trigger');
+  if (job.type === 'cron' || job.type === 'launchctl') {
+    triggerEl.innerHTML = `${esc(job.trigger)} <button id="jm-run-now" style="margin-left:8px;background:var(--green);border:none;color:#fff;padding:2px 8px;border-radius:4px;font-size:11px;cursor:pointer">立即執行</button>`;
+    setTimeout(() => {
+      document.getElementById('jm-run-now').addEventListener('click', () => {
+        alert('⚠️ 此功能需後端 API 支援，目前僅為示範按鈕。\n實際執行需透過 OpenClaw CLI 或後端服務觸發。');
+      });
+    }, 0);
+  }
+  
   const histEl = $('jm-history');
   if (!job.history || !job.history.length) {
     histEl.innerHTML = '<div style="color:var(--muted);font-size:13px;text-align:center;padding:20px">暫無執行記錄</div>';
   } else {
-    histEl.innerHTML = job.history.map(h => `
+    // 計算成功/失敗統計
+    const total = job.history.length;
+    const okCount = job.history.filter(h => h.ok).length;
+    const failCount = total - okCount;
+    const successRate = total > 0 ? Math.round((okCount / total) * 100) : 0;
+    
+    // 加入統計摘要
+    let statsHTML = `
+      <div style="margin-bottom:12px;padding:10px;background:var(--bg);border-radius:8px;border:1px solid var(--border)">
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+          <span style="font-size:12px;color:var(--muted)">成功</span>
+          <span style="font-size:12px;font-weight:600;color:var(--green)">${okCount} (${successRate}%)</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:6px">
+          <span style="font-size:12px;color:var(--muted)">失敗</span>
+          <span style="font-size:12px;font-weight:600;color:var(--red)">${failCount} (${100-successRate}%)</span>
+        </div>
+        <div style="height:6px;background:#30363d;border-radius:3px;overflow:hidden;margin-top:8px">
+          <div style="height:100%;width:${successRate}%;background:var(--green);transition:width 0.3s"></div>
+        </div>
+      </div>
+    `;
+    
+    // 歷史記錄
+    statsHTML += '<div class="modal-history-label">執行歷史</div>';
+    statsHTML += '<div class="modal-history">';
+    statsHTML += job.history.map(h => `
       <div class="modal-hist-item">
         <div class="modal-hist-dot ${h.ok ? 'modal-hist-ok' : 'modal-hist-fail'}"></div>
         <div class="modal-hist-time">${esc(h.time || h.date || '')}</div>
         <div class="modal-hist-msg">${esc(h.message || h.desc || '')}</div>
       </div>
     `).join('');
+    statsHTML += '</div>';
+    
+    histEl.innerHTML = statsHTML;
   }
   $('job-modal').style.display = 'flex';
 }
