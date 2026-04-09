@@ -4,6 +4,7 @@ compatibility_flags = ["nodejs_compat"]
 [env.production]
 name = "openclaw-dashboard"
 compatibility_flags = ["nodejs_compat"]
+compatibility_date = "2026-04-09"
 
 [assets]
 directory = "./dist"
