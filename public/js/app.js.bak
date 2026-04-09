@@ -378,30 +378,6 @@ function renderGraph(data) {
   const W = wrap.clientWidth  || 900;
   const H = wrap.clientHeight || 560;
   svg.attr('viewBox', `0 0 ${W} ${H}`).selectAll('*').remove();
-  // 加入縮放控制
-  const zoom = d3.zoom().scaleExtent([0.1, 4]).on("zoom", (event) => {
-    svg.select("g").attr("transform", event.transform);
-  });
-  svg.call(zoom);
-  
-  // 加入重置按鈕
-  d3.select("#graph-wrap").append("button")
-    .attr("id", "reset-zoom-btn")
-    .style("position", "absolute")
-    .style("top", "12px")
-    .style("left", "12px")
-    .style("background", "var(--card)")
-    .style("border", "1px solid var(--border)")
-    .style("color", "var(--text)")
-    .style("padding", "5px 10px")
-    .style("border-radius", "6px")
-    .style("cursor", "pointer")
-    .style("font-size", "12px")
-    .style("z-index", "10")
-    .text("🔍 重置縮放")
-    .on("click", () => {
-      svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
-    });
 
   const nodeFilter = $('graph-node-filter').value;
 
